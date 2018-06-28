@@ -1,0 +1,13 @@
+{
+    "serviceName" : 
+    [
+        "nameOfService.service",
+        "nameOfService2.service"
+
+    ],
+    "sudoSettings": {
+        "username": "linux sudoer username",
+        "password": "password"
+    }
+
+}
