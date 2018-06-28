@@ -1,0 +1,9 @@
+node_modules/
+bin/
+.DS_Store*
+.hubot_history
+.history/
+*.json
+*.editorconfig
+procfile
+README.md
