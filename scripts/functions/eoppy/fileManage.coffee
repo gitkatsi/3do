@@ -21,12 +21,12 @@ exports.readFile = (fileName, cb) ->
                 cb "File not found and couldn't create one", false
     catch error
         console.error error
-        cb "It seems that i have missplaced the file #{fileName}. Sorry!!!", false
+        cb "It seems that i have misplaced the file #{fileName}. Sorry!!!", false
 
-exports.writeFile = (newdata, fileName, cb) ->
-    newdata = JSON.stringify(newdata)
+exports.writeFile = (newData, fileName, cb) ->
+    newData = JSON.stringify(newData)
     try
-      fs.writeFile pathToFile + fileName, newdata, 'utf8', ()->
+      fs.writeFile pathToFile + fileName, newData, 'utf8', ()->
       cb true
     catch error
       console.error error

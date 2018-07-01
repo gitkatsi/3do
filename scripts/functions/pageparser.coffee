@@ -1,26 +1,26 @@
 request = require "request"
 
-module.exports = parsepage = (pageUrl, searchstring, parsed) ->
+module.exports = parsePage = (pageUrl, searchString, parsed) ->
     request (pageUrl), (error, respond, body) ->
         if body
-            startpos = body.lastIndexOf(searchstring)
-            newstring = body.substr (startpos)
-            if startpos != -1
-                finalbody = newstring.substr(0, newstring.indexOf("</div>"))
-            else if startpos is -1
-                finalbody = "couldn't match " + searchstring
+            startPos = body.lastIndexOf(searchString)
+            newString = body.substr (startPos)
+            if startPos != -1
+                finalBody = newString.substr(0, newString.indexOf("</div>"))
+            else if startPos is -1
+                finalBody = "couldn't match " + searchString
             else
-                finalbody = "no match"
-        finalbody = finalbody.replace(searchstring, "")
-        finalbody = finalbody.replace(/<p>/g, "")
-        finalbody = finalbody.replace(/<\/p>/g, "")
-        finalbody = finalbody.replace(/\t/g, "")
-        finalbody = finalbody.replace(/<h3>/g, "")
-        finalbody = finalbody.replace(/<h2>/g, "")
-        finalbody = finalbody.replace(/<h1>/g, "")
-        finalbody = finalbody.replace(/<\/h3>/g, "")
-        finalbody = finalbody.replace(/<\/h2>/g, "")
-        finalbody = finalbody.replace(/<\/h1>/g, "")
-        finalbody = finalbody.replace(/&quot/g, "")
-        finalbody = finalbody.replace(/\n/g, "\n\n")
-        parsed finalbody
+                finalBody = "no match"
+        finalBody = finalBody.replace(searchString, "")
+        finalBody = finalBody.replace(/<p>/g, "")
+        finalBody = finalBody.replace(/<\/p>/g, "")
+        finalBody = finalBody.replace(/\t/g, "")
+        finalBody = finalBody.replace(/<h3>/g, "")
+        finalBody = finalBody.replace(/<h2>/g, "")
+        finalBody = finalBody.replace(/<h1>/g, "")
+        finalBody = finalBody.replace(/<\/h3>/g, "")
+        finalBody = finalBody.replace(/<\/h2>/g, "")
+        finalBody = finalBody.replace(/<\/h1>/g, "")
+        finalBody = finalBody.replace(/&quot/g, "")
+        finalBody = finalBody.replace(/\n/g, "\n\n")
+        parsed finalBody

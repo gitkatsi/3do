@@ -1,5 +1,5 @@
 # Description:
-#   Gets info from swgohh and reminds players of their payout position
+#   Gets info from http://swgohh.gg and reminds players of their payout position
 #   It does not respond to commands and once per day broadcasts info on channel
 #
 # Dependencies:
@@ -17,11 +17,11 @@
 # Author:
 #   palladas
 
-parsepage = require ("./functions/pageparser")
-playerinfo = require ("./configuration/players.json")
+parsePage = require ("./functions/pageParser")
+playerInfo = require ("./configuration/players.json")
 
 
-#Seting up the message strings and class locator
+#Setting up the message strings and class locator
 
 #Set the class to look for in parser
 parseClass = '<div class="current-rank-value">'
@@ -29,24 +29,24 @@ parseClass = '<div class="current-rank-value">'
 # Set strings to print
 messageStart = "**Hello gents... This is your payout order for today. \n\n**"
 
-wrongPostitionText =  " Cannot compute!!! Palladas promised me to fix my code!"
+wrongPositionText =  " Cannot compute!!! Palladas promised me to fix my code!"
 
 #Get last valid leaderboard position
-callplace = (url, name, cb) ->
+callPlace = (url, name, cb) ->
 #call parser with url, class and get position as callback
-    parsepage url, parseClass, (position) ->
+    parsePage url, parseClass, (position) ->
         try
             position = parseInt(position) #always convert to integer numbers from parsing
-            positiontd = null
+            positionTd = null
             if position is 1
-                positiontd = 2
+                positionTd = 2
             else if position is 2
-                positiontd = 1
+                positionTd = 1
             else
-            if positiontd is null
-                x = "**" + name + ":**" + wrongPostitionText
+            if positionTd is null
+                x = "**" + name + ":**" + wrongPositionText
             else
-                x = "**" + name + "**" + ": Your position today is " + positiontd
+                x = "**" + name + "**" + ": Your position today is " + positionTd
             cb x, true
         catch error
             console.error error
@@ -66,12 +66,13 @@ module.exports = (robot) ->
         roomid = "442259527438565378" #public working room
         #roomid = "372833397346664451" #private room for testing
         robot.messageRoom roomid, messageStart
-        #fetch info for every player(key) of object playerinfo
-        for players, value of playerinfo
-            callplace value.url, players, (cb, status) ->
+        #fetch info for every player(key) of object playerInfo
+        for players, value of playerInfo
+            callPlace value.url, players, (cb, status) ->
                 if status is false
                     robot.messageRoom roomid, "I encountered an error. Sorry!!!!"
                 else if status is true
                     robot.messageRoom roomid, cb
+
 
 

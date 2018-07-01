@@ -6,7 +6,7 @@
     getUserIDByName(<name>) returns id
     getUserNameByID(<id>) returns name
     getUserRole(<name> or <id>) returns role
-    getUsersforRole(<role>) returns objct.name objct.id
+    getUsersForRole(<role>) returns obj.name obj.id
     addRole(<name> or <id>) adds in json the name id and role returns true on success.
     ###
 
@@ -34,12 +34,12 @@ readRolesFile = (cb) ->
                 cb "File not found and couldn't create one", false
     catch error
         console.error error
-        cb "It seems that i have missplaced the file #{file}. Sorry!!!", false
+        cb "It seems that i have misplaced the file #{file}. Sorry!!!", false
 
-writeRolesFile = (newdata, cb) ->
-    newdata = JSON.stringify(newdata)
+writeRolesFile = (newData, cb) ->
+    newData = JSON.stringify(newData)
     try
-        fs.writeFile pathToFile, newdata, 'utf8', (cb) ->
+        fs.writeFile pathToFile, newData, 'utf8', (cb) ->
         cb true
     catch error
         console.error error
@@ -105,9 +105,9 @@ exports.getUserRole = (id_or_name, cb) ->
         ret
 
 
-#get which users have a certain role. Returns an objct.name and objct.id
+#get which users have a certain role. Returns an obj.name and obj.id
 
-exports.getUsersforRole = (role_in, cb) ->
+exports.getUsersForRole = (role_in, cb) ->
     readRolesFile (users, status) ->
         name = ""
         id = ""
@@ -139,7 +139,7 @@ exports.addRole = (name_in, id_in, role_in, cb) ->
         if status is true
             i = 0
             found = false
-            towrite = false
+            toWrite = false
             while i < users.length && found is false
                 if users[i].id is obj.id
                     found = true

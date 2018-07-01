@@ -109,7 +109,7 @@ getAll = ->
           status = true
 #A trick to make a https request function to run in sequence and not in parallel
 #In this case it will fire 50 requests at once on the page if a 'for' or 'while' loop is used
-    #Make the callnext function
+    #Make the callNext function
     callNext = ->
       if i >= nomoi.length
         requestEnd()
