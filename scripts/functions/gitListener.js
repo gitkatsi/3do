@@ -3,7 +3,7 @@ const https = require('https');
 const fs = require('fs');
 //event emitter is used to emit events to same and other scripts
 const emitter = require("events");
-const em = new emitter;
+const em = new emitter();
 
 //assign port no
 var port = 32769;

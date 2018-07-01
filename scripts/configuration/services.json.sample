@@ -8,6 +8,5 @@
     "sudoSettings": {
         "username": "linux sudoer username",
         "password": "password"
-    }
-
+    },
 }
