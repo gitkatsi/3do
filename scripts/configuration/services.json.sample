@@ -9,4 +9,5 @@
         "username": "linux sudoer username",
         "password": "password"
     },
+    "pfxPass": "pfxUsedinPfxCert"
 }

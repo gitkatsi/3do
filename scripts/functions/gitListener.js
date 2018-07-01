@@ -14,7 +14,7 @@ var p = __dirname;
 const options = {
     pfx: fs.readFileSync(p + "/../configuration/new.pfx"),
     passphrase: JSON.parse(fs.readFileSync(p + "/../configuration/services.json")).pfxPass
-}
+};
 
 console.info (`Starting server at port ${port}...`);
 
@@ -22,6 +22,7 @@ https.createServer(options, (req, res) => {
     //whenever server responds we writes a response header 200 / OK
     res.writeHead(200);
     res.end();
+    console.log(`Got a connection from ${req.connection.remoteAddress}`);
     //data is transmitted to chunks. every chunk is saved to an array
     let body = [];
     req.on('data', (chunk) => {
@@ -30,7 +31,13 @@ https.createServer(options, (req, res) => {
                 body = Buffer.concat(body).toString(); // make a string from array
                 if (body != null && body != undefined)
                 {
-                em.emit("t1", JSON.parse(body)); // emit data to external function
+                    try{
+                        em.emit("t1", JSON.parse(body)); // emit data to external function
+                    }
+                    catch (error){
+                        console.log(error);
+                    }
+                
                 }
             }
     );

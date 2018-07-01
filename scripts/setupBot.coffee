@@ -24,7 +24,6 @@ module.exports = (robot) ->
     robot.adapter.client.user.setGame("Yoda is our Lord and Saviour")
     #catch emit from gitListener and print the message
     em.on "gitEvent", (message) ->
-        console.log ("In")
         robot.messageRoom roomid, message
 
     
