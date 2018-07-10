@@ -8,3 +8,4 @@ bin/
 new.pfx
 procfile
 README.md
+*.code-workspace
