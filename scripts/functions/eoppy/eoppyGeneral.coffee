@@ -1,5 +1,5 @@
-request = require "request"
-fileManage = require "../eoppy/fileManage.coffee"
+request     = require "request"
+fileManage  = require "../eoppy/fileManage.coffee"
 
 #Function to post to page with parameters.
 #Headers where needed to be set in order to prevent redirect loops

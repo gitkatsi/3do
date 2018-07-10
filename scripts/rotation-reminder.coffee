@@ -17,19 +17,19 @@
 # Author:
 #   palladas
 
-parsePage = require ("./functions/pageParser")
-playerInfo = require ("./configuration/players.json")
+parsePage           = require ("./functions/pageParser")
+playerInfo          = require ("./configuration/players.json")
 
 
 #Setting up the message strings and class locator
 
 #Set the class to look for in parser
-parseClass = '<div class="current-rank-value">'
+parseClass          = '<div class="current-rank-value">'
 
 # Set strings to print
-messageStart = "**Hello gents... This is your payout order for today. \n\n**"
+messageStart        = "**Hello gents... This is your payout order for today. \n\n**"
 
-wrongPositionText =  " Cannot compute!!! Palladas promised me to fix my code!"
+wrongPositionText   =  " Cannot compute!!! Palladas promised me to fix my code!"
 
 #Get last valid leaderboard position
 callPlace = (url, name, cb) ->

@@ -10,9 +10,9 @@
     addRole(<name> or <id>) adds in json the name id and role returns true on success.
     ###
 
-fs = require ("fs")
-file =  "roles.json"
-pathToFile =  __dirname + "/../configuration/" + file
+fs          = require ("fs")
+file        =  "roles.json"
+pathToFile  =  __dirname + "/../configuration/" + file
 
 readRolesFile = (cb) ->
     try

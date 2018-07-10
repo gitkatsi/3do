@@ -18,19 +18,19 @@
 #   Palladas
 
 #-----------------Set variables----------------#
-statusCommand = "systemctl is-active "
-ResponseActive = ": is active"
-ResponseOther = ": Seems to have a problem. If you would like me " +
-                "to restart the service type 3do restart <service name>"
-ResponseError = "My circuits seems to be broken. I cannot fetch the info you asked."
-restartMsg = "I will try to restart the "
+statusCommand   = "systemctl is-active "
+ResponseActive  = ": is active"
+ResponseOther   = ": Seems to have a problem. If you would like me " +
+                    "to restart the service type 3do restart <service name>"
+ResponseError   = "My circuits seems to be broken. I cannot fetch the info you asked."
+restartMsg      = "I will try to restart the "
 prohibitMessage = "I cannot allow you to do that. I will report this to my Master "
-fileError = "I encountered an error while looking on my files. Sorry!!!"
+fileError       = "I encountered an error while looking on my files. Sorry!!!"
 
 #---------------call external js--------------#
-exec = require('child_process').exec
-cronJob = require('cron').CronJob
-services = null
+exec        = require('child_process').exec
+cronJob     = require('cron').CronJob
+services    = null
 
 #call valid services from external file
 readServiceJson = (cb) ->

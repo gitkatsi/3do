@@ -1,5 +1,5 @@
-fs = require ("fs")
-pathToFile =  __dirname + "/configuration/"
+fs          = require ("fs")
+pathToFile  =  __dirname + "/configuration/"
 
 exports.readFile = (fileName, cb) ->
     try
