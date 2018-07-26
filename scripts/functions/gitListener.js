@@ -6,7 +6,7 @@ const emitter = require("events");
 const em = new emitter();
 
 //assign port no
-var port = 32769;
+var port = 32768;
 var p = __dirname;
 
 //var pass =  JSON.parse(fs.readFileSync(p + "/../configuration/services.json")).pfxPass;
@@ -21,7 +21,7 @@ console.info (`Starting server at port ${port}...`);
 https.createServer(options, (req, res) => {
     //whenever server responds we writes a response header 200 / OK
     res.writeHead(200);
-    res.end();
+    res.end("Hello world");
     console.log(`Got a connection from ${req.connection.remoteAddress}`);
     //data is transmitted to chunks. every chunk is saved to an array
     let body = [];
