@@ -1,6 +1,7 @@
 let request = require("request");
 const fileManage = require("./fileManage");
-
+const emitter = require("events");
+const em = new emitter();
 
 
 
@@ -41,7 +42,9 @@ function getLocations(url, cb) {
     let i = 0;
     var city = null;
     var cityNm = null;
-    for(let i=0; i<obj.length; i++){
+    //data from page is bad. e.x Αττική Αττικής the same nomos
+    //skip the 1st element of array so for starts from 1
+    for(let i=1; i<obj.length; i = i+2){  
       var nomos = obj[i].Name;
       city = obj[i].Cities;
       //dont use value for nomos where nomos is not specified.
@@ -53,6 +56,7 @@ function getLocations(url, cb) {
         locationObj.cityName = cityNm;
         locArray.push(locationObj);
       }
+      
     }
     }
     resolve(locArray)
@@ -62,8 +66,9 @@ function getLocations(url, cb) {
 
 function getExpertise(url, cb) {
   return new Promise(resolve => {
-  url = "https://eopyy.gov.gr/api/v1/med/specialties"
+  url = "https://eopyy.gov.gr/api/v1/med/specialties/1"
   getPageOptions(url, function (error, response, body) {
+    //console.log(body);
     let expertise = JSON.parse(body);
     const expertiseArray = [];
     let i = 0;
@@ -81,12 +86,17 @@ function getExpertise(url, cb) {
 })
 }
 
-
 function getValidDocs(urlin, cb){
-console.log(urlin);
-url = encodeURI(urlin);
-getPageOptions(url, function (error, response, body) {
-      console.log(body);
+urlin = encodeURI(urlin);
+getPageOptions(urlin, function (error, response, body) {
+  console.log(body);
+  if (JSON.parse(body).length > 0){
+    cb(true);
+  }
+  else{
+    cb(false);
+  }
+      
 })
 }
 
@@ -104,12 +114,28 @@ async function getAll(){
        fileManage.writeFile(expertise, "doctorsExpertise.json", function (status) {
          if (status === true) {
            console.log("Saved the doctors expertise file");
+           em.emit("end");
          } else {
            console.log("Failed to write the doctors expertise file");
          }
        });
+      
+
 }
+
+    const cronJob = require('cron').CronJob;
+    //set the correct timezone
+    const tz = 'Europe/Athens';
+    new cronJob('00 00 13 * * 0-6', (function () {
+      return getAll();
+    }), null, true, tz);
+
+module.exports = {getValidDocs: getValidDocs};
 
 getAll();
 
-module.exports = {getValidDocs: getValidDocs};
+//listen for event that everything is finished then exit the process.
+//if no exit is used then code runs forever. 
+em.on("end",() =>{
+  process.exit(0);
+})

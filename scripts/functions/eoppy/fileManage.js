@@ -41,7 +41,7 @@ exports.readFile = function(fileName, cb) {
 exports.writeFile = function(newData, fileName, cb) {
     newData = JSON.stringify(newData);
     try {
-      fs.writeFile(pathToFile + fileName, newData, 'utf8', function(){});
+      fs.writeFileSync(pathToFile + fileName, newData, 'utf8', function(){});
       return cb(true);
     } catch (error) {
       console.error(error);

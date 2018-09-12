@@ -17,12 +17,13 @@
 
 
 const docDetails = require("./functions/eoppy/getDoctors.js");
+const info = require("./functions/eoppy/eoppyGeneral");
 
 module.exports = robot =>
     robot.respond(/γιατρό/i, msg =>
         docDetails.getDocsDetails(String(msg.message), function(details, duplies) {
             if (details.id === false) {
-                details.id = "";
+                details.id = -1;
                 details.docName = "Χωρίς ειδικότητα";
             }
             let exit = false;
@@ -40,21 +41,23 @@ module.exports = robot =>
                 msg.send("Δεν βρήκα αποτελέσματα για πόλη η νόμό από αυτά που μου γράφεις. Sorry!!!");
                 return exit = true;
             } else if (exit === false) {
-                const info = require("./functions/eoppy/eoppyGeneral");
-                var url = `https://eopyy.gov.gr/api/v1/med/search/-1/${details.nomos}/1/${details.city}`;
-                return info.getValidDocs(url, function(id) {
-                    if (id.indexOf(details.id) < 0) {
+
+                var urlAPI = `https://eopyy.gov.gr/api/v1/med/search/${details.id}/${details.nomos}/1/${details.city}`;
+                var printUrl = `https://www.eopyy.gov.gr/suppliers/1/${details.id}/${details.nomos}/${details.city}`;
+                console.log(urlAPI);
+                return info.getValidDocs(urlAPI, function (expertiseExists) {
+                    if (expertiseExists === false) {
                         msg.send("Δεν μπόρεσα να βρώ την" +
                         `ειδικότητα ${details.docName} \nΑκολουθούν` +
                         `τα στοιχεία όλων των γιατρών για την πόλη ${details.city}`
                         );
-                        return msg.send(encodeURI(url + details.id));
+                        return msg.send(encodeURI(printUrl));
                     } else {
                         msg.send("Ακολουθούν τα στοιχεία των γιατρών για την πόλη " +
                         `${details.city} του νομού ${details.nomos} και ` +
                         `με ειδικότητα ${details.docName}`
                         );
-                        return msg.send(encodeURI(url + details.id));
+                        return msg.send(encodeURI(printUrl));
                     }
                 });
             }
