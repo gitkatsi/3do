@@ -136,6 +136,6 @@ getAll();
 
 //listen for event that everything is finished then exit the process.
 //if no exit is used then code runs forever. 
-em.on("end",() =>{
-  process.exit(0);
-})
+//em.on("end",() =>{
+//  process.exit(0);
+//})
