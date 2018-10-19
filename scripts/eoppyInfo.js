@@ -7,10 +7,10 @@
 //   LIST_OF_ENV_VARS_TO_SET
 //
 // Commands:
-//   γιατρό + free text. I can understand you message
+//   3do γιατρό + πόλη ή και νομό ή και ειδικότητα. Θα βρώ τι χρειάζεσαι αμέσως. 
 //
 // Notes:
-//
+//  Get info about doctors from ΕΟΠΥΥ
 // Author:
 //   palladas
 

@@ -1,5 +1,5 @@
 // Description:
-//   Translates every message that is not in english language to english
+//   Translates every message that is not in English language to English
 //
 // Dependencies:
 //   none
@@ -8,13 +8,13 @@
 //   LIST_OF_ENV_VARS_TO_SET
 //
 // Commands:
-//   none
+//   No command needed. I will translate for you all the non english sentences. 
 //
 // Notes:
 //
 //
 // Author:
-//   palladas
+//   Katsikiotis Georgios
 
 module.exports = robot =>
     robot.catchAll(function(msg) {

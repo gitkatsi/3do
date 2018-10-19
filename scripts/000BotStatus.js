@@ -1,3 +1,22 @@
+// Description:
+//   retrieves status of predefined services and can restart them
+//
+// Dependencies:
+//   child_process": "<module version>"
+//   configuration/services.json
+//
+// Configuration:
+//   LIST_OF_ENV_VARS_TO_SET
+//
+// Commands:
+//   hubot <status> - shows the status of predefined services as Active/Inactive
+//   hubot <restart> <service> - Restarts the service.
+// Notes:
+//
+//
+// Author:
+//   Palladas
+
 module.exports = function(robot){
     //set as constants the bot's discord ids room ids and user ids
     const roomID = "372833397346664451";

@@ -8,7 +8,7 @@
 //   none
 //
 // Commands:
-//   none
+//   No command needed. I will alert you about git events and server problems
 //
 // Notes:
 //
@@ -21,7 +21,7 @@ const em = server.emitter;
 module.exports = function(robot) {
     const roomid = "372833397346664451"; //Test room..
     robot.messageRoom(roomid, "I just woke up! Give me a break!");
-    robot.adapter.client.user.setGame("Yoda is our Lord and Saviour");
+    robot.adapter.client.user.setGame("Waiting for Revan Event");
     //catch emit from gitListener and print the message
     return em.on("gitEvent", message => robot.messageRoom(roomid, message));
 };

@@ -9,7 +9,7 @@
 //   LIST_OF_ENV_VARS_TO_SET
 //
 // Commands:
-//   none
+//   No command needed. I will print your leaderboard places in every day base. 
 //
 // Notes:
 //

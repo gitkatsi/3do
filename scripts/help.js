@@ -8,7 +8,7 @@
 //   LIST_OF_ENV_VARS_TO_SET
 //
 // Commands:
-//   hubot help - Responds with random unhelpful phrases
+//   3do funnyhelp - Responds with random unhelpful phrases
 //
 // Notes:
 //
@@ -17,7 +17,7 @@
 //   palladas
 
 module.exports = robot =>
-    robot.respond(/help/i, function(res) {
+    robot.respond(/funnyhelp/i, function(res) {
         const resArray = ["I am not here to help you",
             "Go away",
             "I'm just a reminder protocol droid, nothing fancy here",

@@ -8,7 +8,7 @@
 //   LIST_OF_ENV_VARS_TO_SET
 //
 // Commands:
-//   Roles <username> , <admin/poweruser/user> <add/remove>
+//   Roles <username> , <admin/poweruser/user> <add/remove> I will handle roles for you. 
 //
 // Notes:
 //
