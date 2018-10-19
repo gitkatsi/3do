@@ -14,7 +14,7 @@
 //
 //
 // Author:
-//   palladas
+//   Katsikiotis Georgios
 
 const server = require("./functions/gitListener.js");
 const em = server.emitter;

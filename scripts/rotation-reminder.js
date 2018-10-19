@@ -15,7 +15,7 @@
 //
 //
 // Author:
-//   palladas
+//   Katsikiotis Georgios
 
 const parsePage = require(("./functions/pageParser"));
 const playerInfo = require(("./configuration/players.json"));

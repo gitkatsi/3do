@@ -14,7 +14,7 @@
 //
 //
 // Author:
-//   palladas
+//   Katsikiotis Georgios
 
 module.exports = robot =>
     robot.respond(/funnyhelp/i, function(res) {

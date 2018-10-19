@@ -15,7 +15,7 @@
 //
 //
 // Author:
-//   Palladas
+//   Katsikiotis Georgios
 
 //-----------------Set variables----------------#
 const statusCommand = "systemctl is-active ";

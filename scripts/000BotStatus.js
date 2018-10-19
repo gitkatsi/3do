@@ -9,13 +9,12 @@
 //   LIST_OF_ENV_VARS_TO_SET
 //
 // Commands:
-//   hubot <status> - shows the status of predefined services as Active/Inactive
-//   hubot <restart> <service> - Restarts the service.
+//  No command needed. I will inform you if 000bot goes offline.
 // Notes:
 //
 //
 // Author:
-//   Palladas
+//   Katsikiotis Georgios
 
 module.exports = function(robot){
     //set as constants the bot's discord ids room ids and user ids
