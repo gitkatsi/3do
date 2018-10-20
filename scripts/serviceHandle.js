@@ -11,6 +11,7 @@
 // Commands:
 //   hubot <status> - shows the status of predefined services as Active/Inactive
 //   hubot <restart> <service> - Restarts the service.
+//   hubot <restart> you - I will restart myself.
 // Notes:
 //
 //
@@ -18,7 +19,7 @@
 //   Katsikiotis Georgios
 
 //-----------------Set variables----------------#
-const statusCommand = "systemctl is-active ";
+const statusCommand = "systemctl is-active";
 const ResponseActive = ": is active";
 const ResponseOther = ": Seems to have a problem. If you would like me " +
                 "to restart the service type 3do restart <service name>";
@@ -29,7 +30,6 @@ const fileError = "I encountered an error while looking on my files. Sorry!!!";
 
 //---------------call external js--------------#
 const { exec } = require('child_process');
-const cronJob = require('cron').CronJob;
 let services = null;
 
 //call valid services from external file
