@@ -19,7 +19,7 @@
 //   Katsikiotis Georgios
 
 //-----------------Set variables----------------#
-const statusCommand = "systemctl is-active";
+const statusCommand = "systemctl is-active ";
 const ResponseActive = ": is active";
 const ResponseOther = ": Seems to have a problem. If you would like me " +
                 "to restart the service type 3do restart <service name>";
@@ -78,6 +78,7 @@ const getServiceStatus = function(service, cb) {
         }
     });
 };
+
 
 //Check if user is valid for given command
 const checkUser = function(userID, cb) {
