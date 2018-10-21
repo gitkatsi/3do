@@ -1,4 +1,4 @@
-//This is a simple file server to listen to webHooks from gitHub.
+//This is a simple web server to listen to webHooks from gitHub.
 const https     = require('https');
 const fs        = require('fs');
 //event emitter is used to emit events to same and other scripts
@@ -19,7 +19,7 @@ const options = {
 console.info (`Starting server at port ${port}...`);
 
 https.createServer(options, (req, res) => {
-    //whenever server responds we writes a response header 200 / OK
+    //whenever server responds sends a response code 200 / OK
     res.writeHead(200);
     res.end("Hello world");
     console.log(`Got a connection from ${req.connection.remoteAddress}`);

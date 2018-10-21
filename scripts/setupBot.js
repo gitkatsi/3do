@@ -21,7 +21,7 @@ const em = server.emitter;
 module.exports = function(robot) {
     const roomid = "372833397346664451"; //Test room..
     robot.messageRoom(roomid, "I just woke up! Give me a break!");
-    robot.adapter.client.user.setGame("Waiting for Revan Event");
+    robot.adapter.client.user.setGame("Dark side is the answer...");
     //catch emit from gitListener and print the message
     return em.on("gitEvent", message => robot.messageRoom(roomid, message));
 };
