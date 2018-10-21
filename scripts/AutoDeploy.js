@@ -24,38 +24,39 @@ const event = require("events"); //add event module
 var eventEmitter = new event; //create new event emitter
 const path = require("path")
 
+
 watchPath = path.join(__dirname, "..", "..", "..", "bot")
+
 function fileWatchOneEvent() {
 const watcher = fs.watch(watchPath, (event, filename) => {
-  watcher.close();
+  watcher.close(); //stop watcher to prevent multiple event.emit for one file change
   if (event === "change") {
     eventEmitter.emit("change", filename)
   }
   else if(event === "rename"){
     eventEmitter.emit("rename", filename)
   }
-  
+  //wait for 5 seconds before starting again folder watch
   setTimeout(fileWatchOneEvent, 5000)
 })
 }
-//fire up the folder watcher
-fileWatchOneEvent();
-
-
-console.log("Initiating auto deploy module")
+//fire up the folder watcher k
+fileWatchOneEvent()
+//hgjhgjh
+console.log("Initiated auto-deploy module")
 module.exports = function (robot) {
   const roomid = "372833397346664451"; //Test room.
-  const tsitaId = "370484667087978496"
+  const tsitasID = "370484667087978496"
 
   eventEmitter.on("change", filename => {
     const messageChange = `AutoDeploy has been completed`
     robot.messageRoom(roomid, messageChange)
-    robot.messageRoom(userID, "AutoDeploy has been completed");
+    robot.messageRoom(tsitasID, "AutoDeploy has been completed");
   });
     eventEmitter.on("rename", filename => {
       const messageAddRemove = `AutoDeploy has been completed`
       robot.messageRoom(roomid, messageAddRemove)
-      robot.messageRoom(userID, "AutoDeploy has been completed");
+      robot.messageRoom(tsitasID, "AutoDeploy has been completed");
     });
 
   };
