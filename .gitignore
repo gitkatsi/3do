@@ -7,8 +7,5 @@ bin/
 *.editorconfig
 new.pfx
 procfile
-<<<<<<< HEAD
-=======
 README.md
 *.code-workspace
->>>>>>> ad99df5ba2d77efe9077947fedb83de24d0b966c
