@@ -42,9 +42,8 @@ function getLocations(url, cb) {
     let i = 0;
     var city = null;
     var cityNm = null;
-    //data from page is bad. e.x Αττική Αττικής the same nomos
-    //skip the 1st element of array so for starts from 1
-    for(let i=1; i<obj.length; i = i+2){  
+
+    for(let i=0; i<obj.length; i++ ){  
       var nomos = obj[i].Name;
       city = obj[i].Cities;
       //dont use value for nomos where nomos is not specified.
@@ -132,10 +131,10 @@ async function getAll(){
 
 module.exports = {getValidDocs: getValidDocs};
 
+//get info once and then set interval
 getAll();
 
-//listen for event that everything is finished then exit the process.
-//if no exit is used then code runs forever. 
-//em.on("end",() =>{
-//  process.exit(0);
-//})
+interval = 1000*60*60*24
+console.log(`Fetching info for eopyy doctors every ${interval/(1000*60*60)} hours`)
+setInterval(getAll, interval);
+
