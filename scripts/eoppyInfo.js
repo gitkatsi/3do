@@ -1,5 +1,5 @@
 // Description:
-//   Get info about docs from eoppy.
+//   Get info about docs from eopyy.
 // Dependencies:
 //   none
 //
@@ -16,8 +16,8 @@
 
 
 
-const docDetails = require("./functions/eoppy/getDoctors.js");
-const info = require("./functions/eoppy/eoppyGeneral");
+const docDetails = require("./functions/eopyy/getDoctors");
+const info = require("./functions/eopyy/eopyyGeneral");
 
 module.exports = robot =>
     robot.respond(/γιατρό/i, msg =>
