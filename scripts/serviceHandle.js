@@ -165,16 +165,18 @@ module.exports = function(robot) {
         return checkUser(msg.message.user.id, function(check) {
             if (check === true) {
                 if (String(service) === "3do.service") {
-                   msg.send("I'll be back");
+                   msg.send("Ι'm going down for maintenance. I will return promptly");
                }
-            
+               setTimeout( ()=>{
                 return checkCommandToExec(service, function(cb, status) {
                     if (status === true) {
                         return msg.send(cb);
                     } else {
                         return msg.send(cb);
                     }
-                });
+                
+                })
+                }, 3000)
             } else {
                 return msg.send(prohibitMessage);
             }
