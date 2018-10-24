@@ -20,8 +20,8 @@ const server = require("./functions/gitListener.js");
 const em = server.emitter;
 module.exports = function(robot) {
     const roomid = "372833397346664451"; //Test room..
-    robot.messageRoom(roomid, "I just woke up! Give me a break!");
-    robot.adapter.client.user.setGame("Dark side is the answer...");
+    robot.messageRoom(roomid, "Ahhhhh!!! I just woke up.");
+    robot.adapter.client.user.setGame("Judgment day is here");
     //catch emit from gitListener and print the message
     return em.on("gitEvent", message => robot.messageRoom(roomid, message));
 };
