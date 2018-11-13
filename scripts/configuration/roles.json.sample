@@ -1,1 +1,5 @@
-[{"name":"username","id":"int ID","role":" Admin/poweruser/user "}]
+[{
+  "name": "username",
+  "id": "string",
+  "role": " Admin/poweruser/user "
+}]

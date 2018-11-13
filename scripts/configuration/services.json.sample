@@ -1,13 +1,12 @@
 {
-    "serviceName" : 
-    [
-        "nameOfService.service",
-        "nameOfService2.service"
+  "serviceName": [
+    "nameOfService.service",
+    "nameOfService2.service"
 
-    ],
-    "sudoSettings": {
-        "username": "linux sudoer username",
-        "password": "password"
-    },
-    "pfxPass": "pfxUsedinPfxCert"
+  ],
+  "sudoSettings": {
+    "username": "linux sudoer username",
+    "password": "password"
+  },
+  "pfxPass": "pfxUsedinPfxCert"
 }

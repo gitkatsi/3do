@@ -1,8 +1,8 @@
 {
-    "Erim": {
+    "Name": {
         "url": "https://swgoh.gg/u/<playersName>/"
     },
-    "Janson": {
+    "Name": {
         "url": "https://swgoh.gg/u/<playersName>/"
     }
 }
