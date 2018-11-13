@@ -4,6 +4,7 @@ const request = require("request");
 module.exports = (parsePage = (pageUrl, searchString, parsed) =>
     request((pageUrl), function(error, respond, body) {
         let finalBody;
+        //find text by calculating indexOf 
         if (body) {
             const startPos = body.lastIndexOf(searchString);
             const newString = body.substr((startPos));
@@ -15,6 +16,7 @@ module.exports = (parsePage = (pageUrl, searchString, parsed) =>
                 finalBody = "no match";
             }
         }
+        //remove HTML tags to clear substring
         finalBody = finalBody.replace(searchString, "");
         finalBody = finalBody.replace(/<p>/g, "");
         finalBody = finalBody.replace(/<\/p>/g, "");

@@ -43,7 +43,7 @@ https.createServer(options, (req, res) => {
     );
 }).listen(port);
 
-
+//on event construct message to return to user from received object
 em.on("t1", (data) => {
     if (data.pusher != null && data.pusher != undefined)
     {

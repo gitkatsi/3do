@@ -40,9 +40,8 @@ const watcher = fs.watch(watchPath, (event, filename) => {
   setTimeout(fileWatchOneEvent, 5000)
 })
 }
-//fire up the folder watcher k
+//fire up the folder watcher 
 fileWatchOneEvent()
-//hgjhgjh
 console.log("Initiated auto-deploy module")
 module.exports = function (robot) {
   const roomid = "372833397346664451"; //Test room.
