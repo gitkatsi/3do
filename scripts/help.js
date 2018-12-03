@@ -8,7 +8,7 @@
 //   LIST_OF_ENV_VARS_TO_SET
 //
 // Commands:
-//   3do funnyhelp - Responds with random unhelpful phrases
+//   hubot funnyhelp - Responds with random unhelpful phrases
 //
 // Notes:
 //
